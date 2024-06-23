@@ -1,0 +1,389 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Cpmpatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="Logo.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Own Webpage</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #2f363e;
+            }
+
+            /* NAVIGATION ICONS */
+
+            .navigation{
+                position: absolute;
+                left: 0;
+                width: 100px;
+                height: 100%;
+                background: #2f363e;
+                box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
+                10px 10px 70px rgba(0,0,0,0.5),
+                inset 5px 5px 10px rgba(0,0,0,0.5),
+                inset 5px 5px 20px rgba(255,255,255,0.2),
+                inset 5px -5px 15px rgba(0,0,0,0.75);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .navigation li{
+                position: relative;
+                list-style: none;
+                width: 80px;
+                height: 80px;
+                display: flex;
+                justify-content: center;
+                margin: 0 5px;
+            }
+
+            .navigation li::before{
+                content: '';
+                position: absolute;
+                top: calc(50% - 2.5px);
+                left: 20px;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                transition: 0.5s;
+                background: #0f0;
+            }
+
+            .navigation li.active::before{
+                background: #0f0;
+                box-shadow: 0 0 5px #0f0,
+                0 0 10px #0f0,
+                0 0 10px #0f0,
+                0 0 10px #0f0,
+                0 0 10px #0f0,
+                0 0 10px #0f0;
+            }
+
+            .navigation li a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-decoration: none;
+            }
+
+            .navigation li a .icon{
+                position: absolute;
+                font-size: 1.75em;
+                width: 80px;
+                height: 80px;
+                color: #aaa;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s;
+                transition-delay: 0.2s;
+            }
+
+            .navigation li:hover a .icon{
+                color: #29fd53;
+            }
+
+            .navigation li.active a .icon{
+                transform: translateX(45px);
+                background: #29fd53;
+                color: #fff;
+                box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
+                inset 2px 2px 3px rgba(255,255,255,0.25),
+                inset -3px -3px 5px rgba(0,0,0,0.5);
+                transition-delay: 0s;
+            }
+
+            .navigation li a .icon::before{
+                content: '';
+                position: absolute;
+                inset: 10px;
+                background: #2f363e;
+                border-radius: 50%;
+                box-shadow: 5px 5px 5px rgba(0,0,0,0.5),
+                inset 2px 2px 3px rgba(255,255,255,0.25),
+                inset -3px -3px 5px rgba(0,0,0,0.5);
+                transform: scale(0);
+                transition: 0.5s;
+            }
+
+            .navigation li.active a .icon::before{
+                transform: scale(1);
+            }
+
+            .navigation li a .text{
+                position: absolute;
+                left: 80px;
+                font-size: 1.25em;
+                background: #29fd53;
+                color: #2f363e;
+                padding: 4px 15px;
+                border-radius: 15px;
+                box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
+                inset -3px -3px 5px rgba(0,0,0,0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.5s;
+            }
+
+            .navigation li a .text::before{
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -4px;
+                transform: translateY(-50%) rotate(45deg);
+                width: 10px;
+                height: 10px;
+                background: #29fd53;
+            }
+
+            .navigation li:hover a .text{
+                left: 100px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navigation li.active:hover a .text{
+                left: 140px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* TO DO LIST */
+            .box{
+                position: relative;
+                width: 450px;
+                height: 550px;
+                border-radius: 30px;
+                background: #2f363e;
+                padding: 30px 50px;
+                box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
+                10px 10px 70px rgba(0,0,0,0.25),
+                inset 5px 5px 10px rgba(0,0,0,0.5),
+                inset 5px 5px 20px rgba(255,255,255,0.2),
+                inset -5px -5px 15px rgba(0,0,0,0.75);
+            }
+
+            h2{
+                width: 100%;
+                font-weight: 600;
+                text-align: center;
+                color: #fff;
+                font-size: 1.7em;
+                margin-bottom: 10px;
+            }
+
+            #inputBx{
+                position: relative;
+                width: 100%;
+                border: none;
+                outline: none;
+                padding: 15px 20px;
+                border-radius: 30px;
+                font-size: 1em;
+                box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
+                inset 2px 2px 5px rgba(0,0,0,0.5),
+                inset -3px -3px 5px rgba(0,0,0,0.5);
+            }
+
+            .box li{
+                position: relative;
+                width: calc(100% - 40px);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: #1f83f2;
+                margin: 15px 0;
+                padding: 10px 10px 10px 45px;
+                min-height: 45px;
+                cursor: pointer;
+                border-radius: 22.5px;
+                color: #fff;
+                box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
+                inset 2px 2px 5px rgba(0,0,0,0.5),
+                inset -3px -3px 5px rgba(0,0,0,0.5);
+            }
+
+            .box li i{
+                position: absolute;
+                right: -40px;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #ff2c74;
+                border-radius: 50%;
+                box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
+                inset 2px 2px 5px rgba(255,255,255,0.25),
+                inset -3px -3px 5px rgba(0,0,0,0.5);
+            }
+
+            .box li i::before{
+                content: '';
+                position: absolute;
+                width: 15px;
+                height: 2px;
+                background: #fff;
+                transform: rotate(45deg);
+            }
+
+            .box li i::after{
+                content: '';
+                position: absolute;
+                width: 15px;
+                height: 2px;
+                background: #fff;
+                transform: rotate(-45deg);
+            }
+
+            .box li::before{
+                content: '';
+                position: absolute;
+                left: 8px;
+                width: 30px;
+                height: 30px;
+                background: #2f363e;
+                border-radius: 50%;
+            }
+
+            .box li.done{
+                background: #607d8b;
+            }
+
+            .box li.done:after{
+                content: '';
+                position: absolute;
+                left: 16px;
+                width: 12px;
+                height: 6px;
+                border-left: 2px solid #fff;
+                border-bottom: 2px solid #fff;
+                transform: rotate(315deg);
+            }
+
+            #list{
+                position: relative;
+                margin-top: 20px;
+                height: 350px;
+                overflow-y: auto;
+                padding-right: 10px;
+            }
+
+            ::-webkit-scrollbar-track{
+                box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+            }
+
+            ::-webkit-scrollbar{
+                width: 5px;
+            }
+
+            ::-webkit-scrollbar-thumb{
+                background: #fff;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <!--NAVIGATION ICONS-->
+        <ul class="navigation">
+            <li>
+                <a href="DigitalClock.html">
+                    <span class="icon"><ion-icon name="time-outline"></ion-icon></span>
+                    <span class="text">Clock</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="ToDoList.html">
+                    <span class="icon"><ion-icon name="newspaper-outline"></ion-icon></span>
+                    <span class="text">To Do List</span>
+                </a>
+            </li>
+            <li>
+                <a href="Calculator.html">
+                    <span class="icon"><ion-icon name="calculator-outline"></ion-icon></span>
+                    <span class="text">Calculator</span>
+                </a>
+            </li>
+            <li>
+                <a href="SpinGame.html">
+                    <span class="icon"><ion-icon name="game-controller-outline"></ion-icon></span>
+                    <span class="text">Spin Game</span>
+                </a>
+            </li>
+            <li>
+                <a href="StickyNote.html">
+                    <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
+                    <span class="text">Sticky Note</span>
+                </a>
+            </li>
+        </ul>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!-- TO DO LIST -->
+        <div class="container2">
+            <div class="box">
+                <h2>To DO LIST</h2>
+                <input type="text" placeholder="Write here ...." id="inputBx">
+                <ul id="list"></ul>
+            </div>
+        </div>
+
+        <script>
+            /* NAVIGATION */
+
+            let List = document.querySelectorAll('.navigation li');
+            function activeLink(){
+                List.forEach((item) =>
+                item.classList.remove('active'));
+                this.classList.add('active')
+            }
+            List.forEach((item) =>
+            item.addEventListener('click', activeLink));
+
+            /* TO DO LIST */
+            let inputBx = document.querySelector('#inputBx');
+            let list = document.querySelector('#list');
+
+            inputBx.addEventListener("keyup", function(event){
+                if(event.key == "Enter"){
+                    addItem(this.value)
+                    this.value = ""
+                }
+            })
+            let addItem = (inputBx) => {
+                let listItem = document.createElement("li");
+                listItem.innerHTML = `${inputBx}<i></i>`;
+                    listItem.addEventListener("click", function(){
+                        this.classList.toggle('done');
+                    })
+                    listItem.querySelector("i").addEventListener("click", function(){
+                        listItem.remove();
+                    });
+                    list.appendChild(listItem);
+            }
+        </script>
+    </body>
+</html>

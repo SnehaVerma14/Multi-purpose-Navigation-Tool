@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Cpmpatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS and JS/DigitalClock_CSS.css">
+        <link rel="icon" href="Logo.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Own Webpage</title>
+    </head>
+
+    <body>
+
+        <!--NAVIGATION ICONS-->
+        <ul class="navigation">
+            <li class="active">
+                <a href="DigitalClock.html">
+                    <span class="icon"><ion-icon name="time-outline"></ion-icon></span>
+                    <span class="text">Clock</span>
+                </a>
+            </li>
+            <li>
+                <a href="ToDoList.html">
+                    <span class="icon"><ion-icon name="newspaper-outline"></ion-icon></span>
+                    <span class="text">To Do List</span>
+                </a>
+            </li>
+            <li>
+                <a href="Calculator.html">
+                    <span class="icon"><ion-icon name="calculator-outline"></ion-icon></span>
+                    <span class="text">Calculator</span>
+                </a>
+            </li>
+            <li>
+                <a href="SpinGame.html">
+                    <span class="icon"><ion-icon name="game-controller-outline"></ion-icon></span>
+                    <span class="text">Spin Game</span>
+                </a>
+            </li>
+            <li>
+                <a href="StickyNote.html">
+                    <span class="icon"><ion-icon name="document-outline"></ion-icon></span>
+                    <span class="text">Sticky Note</span>
+                </a>
+            </li>
+        </ul>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        
+
+        <!--DIGITAL CLOCK-->
+        <div class="container">
+            <div class="clock">
+
+                <div class="circle" id="sc" style="--clr:#04fc43;"><i></i></div>
+                <div class="circle circle2" id="mn" style="--clr:#fee800;"><i></i></div>
+                <div class="circle circle3" id="hr" style="--clr:#ff2972;"><i></i></div>
+
+                <span style="--i:1;"><b>1</b></span>
+                <span style="--i:2;"><b>2</b></span>
+                <span style="--i:3;"><b>3</b></span>
+                <span style="--i:4;"><b>4</b></span>
+                <span style="--i:5;"><b>5</b></span>
+                <span style="--i:6;"><b>6</b></span>
+                <span style="--i:7;"><b>7</b></span>
+                <span style="--i:8;"><b>8</b></span>
+                <span style="--i:9;"><b>9</b></span>
+                <span style="--i:10;"><b>10</b></span>
+                <span style="--i:11;"><b>11</b></span>
+                <span style="--i:12;"><b>12</b></span>
+            </div>
+
+            <div id="time">
+                <div id="hours" style="--clr:#ff2972;">00</div>
+                <div id="minutes"  style="--clr:#fee800;">00</div>
+                <div id="seconds" style="--clr:#04fc43;">00</div>
+                <div id="ampm">AM</div>
+            </div>
+        </div>
+        <script src="CSS and JS/DigitalClock_JS.js"></script>
+
+    </body>
+</html>
